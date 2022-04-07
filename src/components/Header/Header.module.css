@@ -1,0 +1,19 @@
+.icon {
+    height: 40px;
+  }
+
+.header { 
+    align-items: center; 
+    box-shadow: 0 0 5px var(--grey); 
+    display: flex;       
+    justify-content: space-between;  
+    padding: 5px 50px; 
+        
+  }
+  
+.headerContainer{ 
+    background-color: var(--white);       
+    position: sticky;
+    top: 0;    
+    z-index: var(--headerZindex);
+  }

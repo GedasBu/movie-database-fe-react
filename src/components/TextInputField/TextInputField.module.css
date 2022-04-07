@@ -1,0 +1,30 @@
+.input {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    color: hsl(0, 0%, 20%);
+    font: inherit;
+    height: 22px;
+    margin-right: 0px; 
+    padding: 7px 15px;            
+}
+
+.fieldError {
+    color: var(--red);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.textInputField{
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: var(--grey);
+    font-size: 13px; 
+    margin-bottom: 5px;
+    margin-top: 10px;     
+}
+
+
+

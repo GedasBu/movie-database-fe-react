@@ -1,0 +1,11 @@
+.tag {
+    background-color: var(--secondary);
+    border-radius: 3px;
+    font-size: 12px;
+    height: fit-content;
+    padding: 3px 6px;   
+}
+
+.tag:not(:first-child)  {
+    margin-left: 10px;
+}

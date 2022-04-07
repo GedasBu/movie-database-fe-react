@@ -1,0 +1,53 @@
+.modal {
+  background-color: hsla(0,0%,75.3%,0.9);  
+  display: block;
+  height: 100%;
+  left: 0; 
+  overflow: auto; 
+  padding-top: 50px; 
+  position: fixed;    
+  top: 0;
+  width: 100%; 
+  z-index: 1;     
+  }
+
+  .modalHide{
+    display: none;
+  }
+
+  .formContent {
+    background-color: #fefefe;
+    margin: 15% auto 15% auto;
+    padding: 5px 10px 5px 10px;
+    width: 20%;    
+  }
+
+  .buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .formHeader{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 15px;      
+  }
+
+.signInButton{
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font: inherit;
+    outline: inherit;
+}
+
+.signInButton:hover{
+  text-decoration: 2px underline var(--secondary);
+  text-underline-offset: 3px;  
+}
+
+p{
+  font-size: 13px;
+}

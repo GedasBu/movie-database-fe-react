@@ -1,0 +1,35 @@
+.movieCard {
+    border: 1px solid var(--grey);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    max-width: 460px;
+    min-width: 150px;
+}
+img {
+    width: 100%;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    justify-content: space-between;
+    padding: 5px 10px;
+    word-break: break-all;
+}
+
+h3 {
+    margin: 20px 0px 20px 0px;
+}
+
+.releaseDate {
+    margin: 15px 0px 15px 0px;
+}
+
+.ratingIcon {
+    fill: var(--rippleLemon );
+    height: 15px;
+    margin-right: 10px;
+    width: 15px;
+}

@@ -1,0 +1,7 @@
+.filterSortContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 50px; 
+    margin-top: 30px;    
+}

@@ -1,0 +1,44 @@
+.headerNav {
+    align-items: center;        
+    display: flex;    
+}
+
+.navList {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+}
+
+.navList.sidebar {
+    flex-direction: column;
+} 
+
+li {
+    margin: 5px 0px;    
+}
+
+.navListItem {
+    color: var(--black);
+    margin: 0px 20px;
+    text-decoration: none;    
+}
+
+.navListItem:hover {
+    border-bottom: 2px solid var(--secondary);
+}
+
+.navButton {
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font: inherit;
+    outline: inherit;
+}
+
+.navButton:hover {    
+    text-decoration: 2px underline var(--secondary);
+    text-underline-offset: 3px; 
+}

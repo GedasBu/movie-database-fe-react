@@ -1,0 +1,91 @@
+{
+  "name": "my-movies-fe",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "0.21.4",
+    "formik": "2.2.9",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-query": "3.22.0",
+    "react-router-dom": "6.2.1",
+    "react-scripts": "4.0.3",
+    "react-select": "5.2.2",
+    "yup": "0.32.11"
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.5",
+    "@babel/preset-env": "7.15.6",
+    "@svgr/webpack": "5.5.0",
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "11.1.0",
+    "@testing-library/user-event": "12.1.10",
+    "@types/axios": "0.14.0",
+    "@types/jest": "26.0.15",
+    "@types/node": "12.0.0",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
+    "@types/react-query": "1.2.9",
+    "eslint": "7.28.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-jest-dom": "^3.9.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "4.2.5",
+    "lint-staged": "11.0.0",
+    "prettier": "2.3.1",
+    "stylelint": "13.13.1",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-recommended": "5.0.0",
+    "stylelint-order": "4.1.0",
+    "svg-react-loader": "0.4.6",
+    "typescript": "4.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "write-env-vars": "node -e \"require('fs').writeFileSync('./.env', 'REACT_APP_API_URL=' + process.argv[1] + '\\n');\"",
+    "types-check": "tsc",
+    "lint": "npm run lint:ts && npm run lint:styles",
+    "lint:ts": "eslint \"./**/*.{ts,tsx}\" --format stylish --fix --quiet",
+    "lint:styles": "stylelint \"./**/*.css\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc && lint-staged",
+      "post-applypatch": "check-dependencies --install",
+      "post-merge": "check-dependencies --install"
+    }
+  },
+  "lint-staged": {
+    "*.{tsx,ts}": [
+      "eslint --format stylish --fix --quiet",
+      "stylelint **/*.css",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
