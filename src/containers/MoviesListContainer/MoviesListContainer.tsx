@@ -6,7 +6,7 @@ import Pagination from 'components/Pagination/Pagination';
 
 import FilterForm from './FilterForm';
 import MovieCard from './MovieCard';
-import { getMovies } from '../../api/movies/movies';
+import { getMovies, getFavoriteMovies } from '../../api/movies/movies';
 import { getGenres } from '../../api/genres/genres';
 import { getSortOptions } from '../..//api/sortOptions/sortOptions';
 import styles from './MoviesListContainer.module.css';
@@ -19,11 +19,24 @@ const MovieListContainer = (): JSX.Element => {
   const movieFilter = { title: searchParams.get('title') || '', genres: searchParams.getAll('genres') || [], sort: searchParams.get('sort') || '' };
 
   const { data, isLoading } = useQuery(['movies', reqPageNumber, movieFilter], () => getMovies(parseInt(reqPageNumber ? reqPageNumber : ''), movieFilter));
+  const { data: favortiteMovies, refetch } = useQuery(['personal-movies'], () => getFavoriteMovies(1));
   const { data: genres, isLoading: loadingGenres } = useQuery(['genres'], getGenres);
   const { data: sortOptions, isLoading: loadingSortOptions } = useQuery(['sortOptions'], getSortOptions);
 
   const sOptions = sortOptions?.map((sortOption) => ({ value: sortOption.code, label: sortOption.name })) || [];
   const gOptions = genres?.map((genre) => ({ value: `${genre.id}`, label: genre.name })) || [];
+
+  const movieList = data?.movies;
+  const favoriteMovieList = favortiteMovies?.docs;
+
+  movieList?.map((movie) => {
+    movie._id = '';
+    favoriteMovieList?.map((favoriteMovie) => {
+      if (favoriteMovie.movieId == movie.movieId) {
+        movie._id = favoriteMovie._id;
+      }
+    });
+  });
 
   const filterParams = (params: MovieListFilterValues, page: string) => {
     const updatedParams = Object.assign(
@@ -52,6 +65,10 @@ const MovieListContainer = (): JSX.Element => {
     setCurrentPage(1);
   };
 
+  const favortesHandler = () => {
+    refetch();
+  };
+
   return (
     <>
       <div>
@@ -65,7 +82,7 @@ const MovieListContainer = (): JSX.Element => {
       </div>
       <div className={styles.main}>
         {data?.movies.map((movie) => (
-          <MovieCard key={movie.movieId} {...movie} />
+          <MovieCard key={movie.movieId} {...movie} favorite={favortesHandler} />
         ))}
       </div>
       <div>

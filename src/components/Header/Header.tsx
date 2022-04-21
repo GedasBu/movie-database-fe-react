@@ -25,11 +25,11 @@ const Header = (): JSX.Element => {
     <div className={styles.headerContainer}>
       <header className={styles.header}>
         <MyMoviesLogo className={styles.icon} />
-        {isMobile ? <Hamburger isActive={isActive} onClick={hamburgerHandler} /> : <Navigation />}
+        {isMobile ? <Hamburger isActive={isActive} onClick={hamburgerHandler} /> : <Navigation closeSidebar={hamburgerHandler} />}
       </header>
       {isActive && isMobile && (
         <Sidebar onBackDropClick={hamburgerHandler}>
-          <Navigation positionColumn />
+          <Navigation closeSidebar={hamburgerHandler} positionColumn />
         </Sidebar>
       )}
     </div>

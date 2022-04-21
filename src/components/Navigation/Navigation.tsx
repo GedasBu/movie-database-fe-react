@@ -9,8 +9,9 @@ import styles from './Navigation.module.css';
 
 interface NavLink {
   positionColumn?: boolean;
+  closeSidebar: () => void;
 }
-const Navigation = ({ positionColumn }: NavLink): JSX.Element => {
+const Navigation = ({ positionColumn, closeSidebar }: NavLink): JSX.Element => {
   const [showModal, setShowModal] = useState(false);
   const { isLoggedIn, logOut } = useProfile();
   const navigate = useNavigate();
@@ -32,16 +33,18 @@ const Navigation = ({ positionColumn }: NavLink): JSX.Element => {
     <div className={styles.headerNav}>
       <nav>
         <ul className={positionColumn ? parseMultipleClassNames([styles.navList, styles.sidebar]) : styles.navList}>
-          <li>
+          <li onClick={closeSidebar}>
             <NavLink className={styles.navListItem} to={RouteKey.Movies}>
               Movies
             </NavLink>
-            {isLoggedIn && (
+          </li>
+          {isLoggedIn && (
+            <li onClick={closeSidebar}>
               <NavLink className={styles.navListItem} to={RouteKey.MyMovies}>
                 My Movies
               </NavLink>
-            )}
-          </li>
+            </li>
+          )}
           <li>
             {!isLoggedIn ? (
               <button className={styles.navButton} onClick={onClickHandler}>

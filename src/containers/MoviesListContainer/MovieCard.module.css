@@ -33,3 +33,9 @@ h3 {
     margin-right: 10px;
     width: 15px;
 }
+
+.favorite{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;    
+}
